@@ -100,11 +100,6 @@ function calcUserCars(users) {
     return users.reduce(function (acc, cur) {
         return cur.cars ? acc += cur.cars.length : acc;
     }, 0);
-    // let countCars: number = 0;
-    // users.forEach(user => {
-    // 	if (user.cars) countCars += user.cars.length;
-    // });
-    // return countCars;
 }
 function filterUsersByEducation(users) {
     return users.filter(function (user) { return user.hasEducation; });
@@ -113,17 +108,23 @@ function filterUsersByAnimals(users) {
     return users.filter(function (user) { return user === null || user === void 0 ? void 0 : user.animals; });
 }
 function getCarBrand(users) {
+    // const cars = users.reduce((acc: any[], cur: IUser) => {
+    // 	if (cur.cars) {
+    // 		cur.cars.map((car: string) => {
+    // 			if (!acc.includes(car)) return acc = [...acc, car];
+    // 			else return acc; 
+    // 		})
+    // 	} else return acc;
+    // }, []);
     var cars = [];
     users.map(function (user) {
         if (user.cars)
             user.cars.map(function (car) {
                 if (!cars.includes(car))
                     cars.push(car);
-                // cars.push(car); 
             });
     });
     return cars.join(', ');
-    // return cars ? cars.reduce((acc: string, cur: string) => (!acc) ? cur : (acc + ', ' + cur), '') : null;
 }
 console.log(getUserNames(users));
 console.log("\u041E\u0431\u0449\u0435\u0435 \u043A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u043E\u0432 \u043C\u0430\u0448\u0438\u043D \u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u0435\u0439: ".concat(calcUserCars(users)));

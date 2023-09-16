@@ -168,8 +168,8 @@ function filterUsersByAnimals(users: IUser[]): IUser[] | null {
 	return users.filter((user: IUser) => user?.animals);
 }
 
-function getCarBrand(users: IUser[]): string | null{
-	let cars: string[] = [];
+function getCarBrand(users: IUser[]): string {	
+	const cars: string[] = [];
 	users.map((user: IUser) => {
 		if (user.cars) user.cars.map((car: string) => {
 			if (!cars.includes(car)) cars.push(car); 
